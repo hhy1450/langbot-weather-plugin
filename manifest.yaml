@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Plugin
+metadata:
+  author: huanghaiyi
+  name: my-weather-tool
+  repository: 'https://github.com/huanghaiyi/langbot-weather-tool'
+  version: 0.1.0
+  description:
+    en_US: 'Weather query tool that fetches real-time weather for any city'
+    zh_Hans: '天气查询工具，支持查询任意城市的实时天气'
+  label:
+    en_US: Weather Query Tool
+    zh_Hans: 天气查询工具
+  icon: assets/icon.svg
+spec:
+  config: []
+  components:
+    tool:
+      - components/tools/get_weather.yaml
+execution:
+  python:
+    path: main.py
+    attr: WeatherToolPlugin

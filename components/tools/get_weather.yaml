@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Tool
+metadata:
+  name: get_weather
+  label:
+    en_US: Weather Query
+    zh_Hans: 天气查询
+  description:
+    en_US: 'Query real-time weather for a given city, returns temperature, humidity, wind speed and conditions'
+    zh_Hans: '查询指定城市的实时天气，返回温度、湿度、风速和天气状况'
+spec:
+  parameters:
+    type: object
+    properties:
+      city:
+        type: string
+        description: 'City name, e.g. Beijing, Shanghai, Tokyo'
+    required:
+      - city
+  llm_prompt: 'When the user asks about weather, call this tool to get real-time weather data for the specified city.'
+execution:
+  python:
+    path: get_weather.py
+    attr: GetWeather
